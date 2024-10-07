@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>hello</p>
+    <p id =p></p>
+    <button id="visitPageBtn">Visit Webpage Wc3</button>
+    <form id="form">
+        <br><br>
+        <label for="fname">Fname</label>
+        <input type="text" name="fname" id="fname"><br><br>
+        <label for="email">email</label>
+        <input type="text" name="email" id="email"><br><br>
+        <input type="submit" value="submit">
+    </form>
+    <script>
+        // alert()
+        window.alert("welcome");
+        let p = document.getElementById("p");
+        let displayName = window.prompt("enter your name : ");
+        // prompt
+        p.innerHTML = `welcome  ${displayName}`;
+        let button = document.getElementById("visitPageBtn");
+
+        // location assign
+        button.addEventListener("click", ()=>{
+            const userConfirmed = confirm("Do you want to visit Google?");
+            if(userConfirmed)
+            location.assign("https://www.w3schools.com/")
+            else
+            alert("you didn't choose visit the website")
+        })
+        // debugger
+        document.getElementById("form").addEventListener("submit", (e)=>{
+            e.preventDefault();
+            let input = document.getElementById("fname");
+            window.localStorage.setItem("fullname" , input.value);
+            let email =document.getElementById("email");
+            window.sessionStorage.setItem("Email", email.value);
+            let x = window.sessionStorage.getItem("Email");
+            console.log(x);
+            
+        })
+    </script>
+</body>
+</html>
